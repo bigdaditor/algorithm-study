@@ -9,6 +9,10 @@ for _ in range(t):
     string = input().rstrip()
     flag = False
 
+    if len(string) == 1:
+        cnt += 1
+        continue
+
     for i in range(len(string)):
         if i < len(string)-1:
             if string[i] == string[i+1]:
