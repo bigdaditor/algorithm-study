@@ -2,13 +2,19 @@ import sys
 input = sys.stdin.readline
 
 n = int(input().rstrip())
-square = [[0 for _ in range(4)] for _ in range(n)]
+canvas = [[0 for i in range(100)] for j in range(100)]
 
 for i in range(n):
     x, y = map(int, input().rstrip().split())
-    square[i][0] = x
-    square[i][1] = y
-    square[i][2] = x+10
-    square[i][3] = y+10
 
-print(square)
+    for j in range(x, x+10):
+        for k in range(y, y+10):
+            canvas[j][k] = 1
+
+sum = 0
+for i in range(100):
+    for j in range(100):
+        if canvas[i][j] == 1:
+            sum += 1
+
+print(sum)
