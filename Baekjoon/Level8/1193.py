@@ -4,20 +4,22 @@ input = sys.stdin.readline
 
 n = int(input().rstrip())
 
-a = 1
-b = 1
-idx = 0
+line = 0
+end = 0
 
-if n == 1:
-    print(str(a) + '/' + str(b))
+# 라인 수 구하기
+while n > end:
+    line += 1
+    end += line
 
-for _ in range(n):
-    idx += 1
-    b += 1
-    if a == 1:
-        a += 1
-        b = 1
-    if b == 1:
-        a += 1
+# 해당 라인에서 끝 수와 차이
+diff = end - n
 
-print(a,b,idx)
+if line % 2 == 0:
+    top = line - diff
+    bottom = diff + 1
+else :
+    top = diff + 1
+    bottom = line - diff
+
+print(f'{top}/{bottom}')
